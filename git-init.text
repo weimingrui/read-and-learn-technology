@@ -1,0 +1,7 @@
+git 安装好了之后首先在github上创建好账号和profile.然后选择本地的一个目录，使用git 命令进行初始化，添加上传文件等操作。例如：
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/weimingrui/read-and-learn-technology.git
+git push -u origin master
+以上就是git和github远程连接（个人理解）的初始化。
