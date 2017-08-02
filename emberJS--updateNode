@@ -1,0 +1,22 @@
+MAC系统升级node版本：
+从v0.10.37升级到6.10.0,首先，打开你的Finder，按shift+command+G,打开前往文件夹的窗口，分别输入下列目录进去之后删除node和node_modules相关的文件和文件夹
+node升级:
+ sudo npm cache clean -f
+ sudo npm install -g n
+ sudo n stable
+打开/usr/local/lib，删除node和node_modules相关的文件和文件夹
+打开/usr/local/include，删除node和node_modules相关的文件和文件夹
+如果你是使用的brew install node命令来安装的nodejs，那么你要在你的终端中执行brew uninstall node命令来卸载nodejs
+检查你的个人主文件夹下面的所有的local、lib以及include文件夹,并且删除所有与node和node_modules相关的文件以及文件夹
+打开/usr/local/bin并删除node可执行文件
+你可能还需要在你的终端中输入一些额外的指令：
+
+sudo rm /usr/local/bin/npm
+sudo rm /usr/local/share/man/man1/node.1
+sudo rm /usr/local/lib/dtrace/node.d
+sudo rm -rf ~/.npm
+sudo rm -rf ~/.node-gyp
+sudo rm /opt/local/bin/node
+sudo rm /opt/local/include/node
+sudo rm -rf /opt/local/lib/node_modul:es
+之后你需要在各个与node相关的项目中删除node_module,这个文件，然后再执行npm install ,重新编译环境 ，不重新编译环境，项目可能会由于环境依赖不匹配而报错。i

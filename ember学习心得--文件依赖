@@ -1,0 +1,2 @@
+css的依赖：在app/style里引入文件，在app.scss里指定文件路径；
+js的依赖：在vendor里引入文件，在ember-cli-build.js里确定文件路径，例如：var test = new Funnel('bower_components/modernizr', {srcDir: '/',include: ['**/*.*'],destDir: '/vendor/test' });

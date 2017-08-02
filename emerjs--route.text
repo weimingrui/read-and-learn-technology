@@ -1,0 +1,4 @@
+rout:
+可以通过{path:"/new-path-name/:"model_id"},重定义路由路径格式：
+_this.get('container').lookup('router:main').transitionTo('media.order.order-header');
+ithis.get('container').lookup('router:main').transitionTo('media.order.edit-order-header',row.get("id"));

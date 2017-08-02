@@ -1,0 +1,19 @@
+在ember框架中提供了findAll,query,queryRecord等方法来请求数据，使用Ember提供的方法获取数据，需要在项目里添加相应的模板才能使用获取到的数据。
+发送GET请求时有数据,
+重写model的save函数，使之发送的数据和链接改变.
+code:
+	DS.Model.extend({
+    color: DS.attr(),
+
+    save: function(){
+      alert('save');
+    }
+});
+关于重写createRecord，updateRecord，deleteRecord等，一般是在适配器中修改的
+示例：
+App.ApplicationAdapter= DS.RESTAdapter.extend({
+  updateRecord: function(){
+    alert('update record');
+  }
+});
+，格式化返回来的结果需要重写序列化；
