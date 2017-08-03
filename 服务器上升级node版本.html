@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>服务器上升级node版本</title>
+</head>
+<style>
+    div{
+        margin-left: 30px;
+        word-wrap: break-word;
+    }
+</style>
+<body>
+    <div style="width: 70%;">
+        此方法试验成功的请情况是在使用Emberjs框架的时候试验成功的。其实node的升级和EmberJs的关系不是很大，操作很类似罢了。
+        下载linux二进制64位包，放在usr/local/src目录下，编辑环境，root/.bashrc。</br>
+        <div>
+            ember升级，通过手动修改ember的版本号。修改之后的bower.json如下：其中需要修改的版本号有三个：ember、ember-data、jquery。在使用命令更新之前最好先删除原有的文件。</br>
+            * 删除bower_components/ember </br>
+            * 删除bower_components/ember-data </br>
+            * 删除bower_components/jquery。</br>
+            需要重新执行npm、bower命令下载最新的文件和依赖文件。</br>
+                npm install bower install</br>
+        </div>
+    </div>
+</body>
+</html>
