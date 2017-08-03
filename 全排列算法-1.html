@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全排列</title>
+</head>
+<body>
+<script>
+    function permutate(str) {
+
+        var result=[];
+        if(str.length==1){
+            return [str]
+        }else{
+            var preResult=permutate(str.slice(1));
+            for (var j = 0; j < preResult.length; j++) {
+                for (var k = 0; k < preResult[j].length+1; k++) {
+                    var newlist=preResult[j].slice(0,k)+str[0]+preResult[j].slice(k);
+                    result.push(newlist);
+                }
+            }
+            return result;
+        }
+    }
+    function checkout(){
+        var str = document.getElementById("permutate").value;
+        var list = permutate(str);
+        console.log(list);
+        alert("查看具体结果请在console界面查看,输入的结果长度 : "+list.length);
+
+    }
+</script>
+<style>
+    div{
+        margin-left: 50px;
+        word-wrap: break-word;
+    }
+</style>
+<div style="margin-top: 20px;">全排列算法实现方法：</div>
+<div style="margin-top: 20px;">实现思路：递归法；把字符串分解成不再分状态，把不可再分状态作为结果返回，然后进行插入排序，层层结算，返回最终结果。</br>
+    通过一个简单的例子来说明一下，比如字符abc,abc作为传入参数，由于其长度不为1，将其分解为a和bc,然后把bc递归，由于bc的长度依旧不是1，</br>
+    将其分解为b和c然后将c继续作为参数成进行递归，由于此时已经将字符串分解为不可再分状态，所以将c作为最终结果返回到上一级的递归，
+    </br>上一级的递归是把bc分解成b和c，所以这一级的在进行插入排序之后的返回结果是["bc","cb"]，这一级的结果继续返回上一层，上一层的递归是abc分成a和bc，
+    </br>把a插入到返回结果中，结果变成["abc","bac","bca","acb","cab","cba"].</div>
+<div style="margin-top: 20px;">
+    <div>code:</br>
+        <div style="width: 70%;background: #ccc;padding: 10px;">function permutate(str) {</br>
+            <div>var result=[];</br></div>
+            <div>if(str.length==1){</br>
+                <div>return [str]</br></div>
+            </div><div>}else{</br>
+                    <div>var preResult=permutate(str.slice(1));</br></div>
+                    <div>for (var j = 0; j < preResult.length; j++) {</br>
+                        <div>for (var k = 0; k < preResult[j].length+1; k++) {</br>
+                            <div>var newlist=preResult[j].slice(0,k)+str[0]+preResult[j].slice(k);</br>
+                                <div>result.push(newlist);</br></div>
+                            </div>}</br>
+                        </div>}</br>
+                        <div>return result;</br></div>
+                    </div>}</br>
+            </div>}</br>
+        </div></div>
+</div>
+<div style="margin-top: 20px;">测试 permutate 接口  <input id="permutate" style="margin-left: 30px" preload="请输入..."/> <button style="margin-left: 50px;" onclick="checkout()">确定</button></div>
+<div>
+    如果想去除由于输入字符串中存在字符相同相邻的而出现重复的子项，可以通过正则表达式：var regxe = /(.)\1+/g 来去除重复项。
+</div>
+<div style="margin-top: 20px;">
+    <div>code:</br>
+        <div style="width: 70%;background: #ccc;padding: 10px;">var newResult = result.filter(function(string) {return !string.match(regex);});</div>
+    </div>
+</div>
+
+</body>
+</html>
