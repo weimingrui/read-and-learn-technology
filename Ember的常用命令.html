@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EmberJS的常用命令</title>
+</head>
+<style>
+    div{
+        margin-left: 30px;
+        word-wrap: break-word;
+    }
+    body div{
+        width: 70%;
+    }
+</style>
+<body>
+<div>
+    <div>1.常用命令：
+        <div>
+            创建新的ember 项目的命令：ember new projectName;</br>
+            创建/删除 route/mode/controller/component/serializer/validator etc.命令：</br>
+            ember g(generate)/d   route/mode/controller/component/serializer/validator etc.</br>
+        </div>
+    </div>
+    <div>2.添加外部文件的方法：
+    <div>在ember-cli-build.js文件中使用app.import(......相对路径)；</div>
+    </div>
+    <div>3.模型
+        <div>
+            ember的模型主要是用来规范从服务器获取到的数据，或者发送到服务器的数据。</br>
+            model在接收到的数据其实是后台的数据先经过ember的serializer的序列化处理，然后再返回的。</br>
+            </br>应用中所有的模型，都继承与DS.Model，所以在js文件中会存在这一行代码来继承DS.Moedl: Model from 'ember-data/model';</br>
+            模型是带有属性的，其表示是attr,也是继承于ember-data;代码里引入：import attr from 'ember-data/attr';
+            </br>属性的类型一般默认为是为string, number, boolean和date 。也可以定义成其中的一个。
+            模型之间可以存在关联关系，关联关系也是继承与ember-data，使用时需要引入，故需在代码里引入：
+            </br>import { hasMany，belongsTo }
+            </br>from 'ember-data/relationships';
+            </br>一般是一对一或一对多或多对多的关系，通过使用belongsTo表示一对一的关系，hasMany表示另外的两个。</br>
+            ember的Model里存提供可选参数，即是默认值，defaultValue通过定义attr的第二个参数来定义默认值。
+        </div>
+    </div>
+</div>
+</body>
+</html>
